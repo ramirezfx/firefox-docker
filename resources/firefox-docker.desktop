@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=true
+Name=Firefox-Docker
+Icon=/usr/share/icons/docker/firefox.png
+Exec=/usr/local/bin/startfirefox.sh
