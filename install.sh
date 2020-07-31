@@ -1,5 +1,7 @@
 ME="$(whoami)"
 HOME="$(echo ~)"
+mkdir $HOME/docker
+mkdir $HOME/docker/firefox-home
 sudo mkdir /usr/share/icons/docker
 sudo cp resources/startfirefox.sh /usr/local/bin
 sudo cp resources/firefox-docker.desktop /usr/share/applications
