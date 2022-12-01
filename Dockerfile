@@ -7,8 +7,10 @@ RUN DEBIAN_FRONTEND=noninteractive \
     apt-get install -y locales locales-all && \
     apt-get install -y tzdata && \
     apt-get install -y keyboard-configuration && \
+    # Add additional needed dependencies here:
     apt-get install -y pulseaudio dbus-x11 procps psmisc bzip2 libgtk-3-0 libdbus-glib-1-2
 
+# Custom Code here:
 
 RUN apt-get install -y wget
 
