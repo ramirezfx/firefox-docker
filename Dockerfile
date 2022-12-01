@@ -33,9 +33,9 @@ RUN echo $LANG > /etc/locale.gen && \
      locales && \
      locale-gen $LANG || update-locale --reset LANG=$LANG
 
-ENV FIREFOXLANG=en-US
-ENV LANG en_US.UTF-8
-ENV TZ=US/Eastern
+ENV FIREFOXLANG=de
+ENV LANG de_AT.UTF-8
+ENV TZ=Europe/Vienna
 
 ENV QT_GRAPHICSSYSTEM="native"
 COPY entrypoint.sh /
