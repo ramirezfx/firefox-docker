@@ -4,21 +4,23 @@ RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
     apt-get install -y locales locales-all && \
     apt-get install -y tzdata && \
-    apt-get install -y keyboard-configuration && \
-    # Add additional needed dependencies here:
-    apt-get install -y pulseaudio dbus-x11 procps psmisc bzip2 libgtk-3-0 libdbus-glib-1-2
+    apt-get install -y keyboard-configuration
 
-# Custom Code here:
+    
 
-# Add adition apt packages:
-RUN apt-get install -y wget
+# --- Custom Code here:
+
+# Add additional apt-packages and dependencies here:
+RUN apt-get install -y wget pulseaudio dbus-x11 procps psmisc bzip2 libgtk-3-0 libdbus-glib-1-2
+
+# Custom Script(s) here:
 
 # Download Latest Firefox
 RUN mkdir /Applications && chmod 777 /Applications && \
     cd /tmp && wget -O Firefox-latest.tar.bz2 "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=de" && \
     tar -xf Firefox-latest.tar.bz2 && cp -Rfa firefox /Applications
 
-# End Custom Code
+#  --- End Custom Code
 
 RUN rm -rf /var/lib/apt/lists/*
 
