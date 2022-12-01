@@ -17,7 +17,7 @@ RUN apt-get install -y wget pulseaudio dbus-x11 procps psmisc bzip2 libgtk-3-0 l
 
 # Download Latest Firefox
 RUN mkdir /Applications && chmod 777 /Applications && \
-    cd /tmp && wget -O Firefox-latest.tar.bz2 "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=&FIREFOXLANG" && \
+    cd /tmp && wget -O Firefox-latest.tar.bz2 "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=$FIREFOXLANG" && \
     tar -xf Firefox-latest.tar.bz2 && cp -Rfa firefox /Applications
 
 #  --- End Custom Code
