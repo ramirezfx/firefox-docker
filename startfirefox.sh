@@ -16,7 +16,6 @@ else
                 --env=USER_UID=$USER_UID \
                 --env=USER_GID=$USER_GID \
                 --env=DISPLAY=unix$DISPLAY \
-                -v firefox-appdir:/Applications \
                 -v ${HOME}/docker/firefox-home:/home/firefox \
                 --volume=/tmp/.X11-unix:/tmp/.X11-unix:ro \
                 --volume=/run/user/$USER_UID/pulse:/run/pulse:ro \
