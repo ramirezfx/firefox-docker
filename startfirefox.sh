@@ -4,7 +4,7 @@ HOME="$(echo ~)"
 
 set -e
 
-if [[ -n "$(docker ps -qaf 'name=ramirezfx/firefox:latest')" ]]; then
+if [[ -n "$(docker ps -qaf 'name=ramirezfx/firefox:latest-at')" ]]; then
         docker restart ramirezfx/firefox:latest-at
 else
         USER_UID=$(id -u)
@@ -20,5 +20,5 @@ else
                 --volume=/tmp/.X11-unix:/tmp/.X11-unix:ro \
                 --volume=/run/user/$USER_UID/pulse:/run/pulse:ro \
                 --name firefox \
-                ramirezfx/firefox:latest
+                ramirezfx/firefox:latest-at
 fi
