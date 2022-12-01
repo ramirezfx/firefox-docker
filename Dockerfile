@@ -1,7 +1,5 @@
 FROM ubuntu:rolling
 
-COPY ./keyboard /etc/default/keyboard
-
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
     apt-get install -y locales locales-all && \
