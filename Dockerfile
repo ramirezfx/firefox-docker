@@ -12,17 +12,15 @@ RUN DEBIAN_FRONTEND=noninteractive \
     dpkg-reconfigure --frontend noninteractive tzdata && \
     dpkg-reconfigure --frontend noninteractive keyboard-configuration
 
-RUN apt-get install -y wget git curl
+RUN apt-get install -y wget
 
 RUN rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /Applications && chmod 777 /Applications && cd /tmp && \
-    git clone https://github.com/ramirezfx/firefox-appimage.git && \
-    cd  firefox-appimage && \
-    chmod +x getlatestfirefox.sh && \
-    /tmp/firefox-appimage/getlatestfirefox.sh && \
-    mv Firefox_Web_Browser-x86_64.AppImage /Applications
-
+# Download Latest Firefox
+RUN mkdir /Applications && chmod 777 /Applications && \
+    cd /tmp && wget -O Firefox-latest.tar.bz2 "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=de" && \
+    tar -xf Firefox-latest.tar.bz2 && cp -Rfa Firefox /Applications
+    
 ENV QT_GRAPHICSSYSTEM="native"
 ENV LC_ALL de_AT.UTF-8
 ENV LANG de_AT.UTF-8
